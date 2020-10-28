@@ -74,7 +74,7 @@ spring:
 api:
   url:
     payment: http://payment:8080
-    customer: http://customer:8080
+    customer: ${configurl}
 
 feign:
   hystrix:
