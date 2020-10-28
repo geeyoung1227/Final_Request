@@ -12,6 +12,7 @@ public class ReqCanceled extends AbstractEvent {
         return id;
     }
 
+    
     public void setId(Long id) {
         this.id = id;
     }
