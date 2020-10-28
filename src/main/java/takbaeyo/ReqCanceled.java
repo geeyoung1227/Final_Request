@@ -2,6 +2,7 @@ package takbaeyo;
 
 public class ReqCanceled extends AbstractEvent {
 
+    
     private Long id;
     private Long memberId;
     private Long qty;
