@@ -24,15 +24,22 @@ public class PolicyHandler{
     public void wheneverPayCanceled_CancelPol(@Payload PayCanceled payCanceled){
 
         if(payCanceled.isMe()){
-
-
             Optional<Request> requestOptional = requestRepository.findById(payCanceled.getRequestId());
             Request request = requestOptional.get();
             request.setStatus(payCanceled.getStatus());
             requestRepository.save(request);
-
             System.out.println("##### listener CancelPol : " + payCanceled.toJson());
+        }
+    }
 
+    @StreamListener(KafkaProcessor.INPUT)
+    public void wheneverCancelPaidCoupon_CancelPol(@Payload CancelPaidCoupon cancelPaidCoupon){
+        if(cancelPaidCoupon.isMe()){
+            Optional<Request> requestOptional = requestRepository.findById(cancelPaidCoupon.getRequestId());
+            Request request = requestOptional.get();
+            request.setStatus(cancelPaidCoupon.getStatus());
+            requestRepository.save(request);
+            System.out.println("##### listener CancelPol : " + cancelPaidCoupon.toJson());
         }
     }
 
