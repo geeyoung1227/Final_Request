@@ -10,6 +10,7 @@ import java.util.List;
 @Table(name="Request_table")
 public class Request {
 
+    
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
