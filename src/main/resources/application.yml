@@ -75,12 +75,3 @@ api:
   url:
     payment: http://payment:8080
     customer: ${configurl}
-
-feign:
-  hystrix:
-    enabled: true
-
-hystrix:
-  command:
-    default:
-      execution.isolation.thread.timeoutInMilliseconds: 680
